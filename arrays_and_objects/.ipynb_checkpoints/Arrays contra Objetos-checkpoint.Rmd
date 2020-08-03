@@ -1,0 +1,40 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.3.1
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+# Analizando en rendimiento de Arrays contra Diccionarios
+
+La diferencia más significativa entre Diccionarios (conocidos en JS como Objetos) y Arrays es que los elementos que se guardan en un Diccionario no tienen orden, mientras que los elementos que se guardan en un Array sí lo tienen. Esto tiene implicaciones con respecto a la O(x) de varios de sus métodos. 
+
+## Diccionarios
+
+Los Diccionarios son más rápidos que los Arrays en inserción y eliminación de elementos, así como en el acceso a la información, sin embargo, debido a que no guarda los elementos en ningún orden en específico, es más costos "recorrer" los elementos, e imposible utilizarlos en algoritmos que necesiten conocer el orden en el que los elementos fueron insertados en el Diccionario. 
+
+### O(x) de los principales métodos del Diccionario
+
+- O(1) para inserciones
+- O(1) para eliminaciones
+- O(1) para acceso
+- O(n) para búsqueda de un elemento en particular
+
+Debido a que los diccionarios son una implementación de una estructura de datos llamada *Hash Table*, el acceso a un elemento en específico utilizando la llave (conocida como 'key' en inglés) es inmediato, y no es necesario recorrer todos los elementos 'anteriores' para llegar al elemento en cuestión (coloco 'anteriores' entre comillas por que, como se mencionó, no hay concepto de orden en un diccionario, por lo que no es posible decir que un elemento es anterior a otro).
+
+Las inserciones y las eliminaciones son O(1) debido a que los diccionarios no necesitan mantener un un órden en los elementos que contienen, por lo que la inserción puede hacerse en cualquier posición, y las eliminaciones pueden hacerse sin tener que preocuparse por ajustar el index de cada elemento (i.e. tener que volver a ordenarlos). Esta es una diferencia importante con respecto a los Arrays, pues cuando se elimina un elemento a la mitad, por ejemplo el elemento con un index 5, se tiene que recorrer el index de los elementos que le siguen (es decir, al elemento 6 hay que colocarlo en la posición 5, al elemento 7 en la posicion 6, y así sucesivamente). 
+
+La búsqueda de un elemento (nos referimos a lo que se conoce como 'value' en inglés) es O(n) por que es necesario recorrer cada uno de los elementos en el diccionario, entrar a cada elemento usando la llave correspondiente y verificar si el elemento es el que se busca. 
+
+
+```{python}
+mi_dic = {}
+
+```

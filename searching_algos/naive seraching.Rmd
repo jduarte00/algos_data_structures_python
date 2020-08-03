@@ -1,0 +1,68 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.3.1
+  kernelspec:
+    display_name: Python 3
+    language: python
+    name: python3
+---
+
+```{python}
+def naive_search(string, pattern):
+    counter = 0
+    for letter in string:
+        if letter == pattern[0]:
+            for letter_pattern in pattern[1:]:
+                if letter_pattern ==
+            
+```
+
+```{python}
+trst = "hello"
+print(trst[1:])
+```
+
+```{python}
+# Using recursion
+
+def helper_function(string, pattern):
+    counter = 0
+    def pattern_check(string, pattern): 
+        print(string,pattern)
+        if string[0] == pattern[0] and len(pattern) == 1:
+            return True
+        elif string[0] == pattern[0]:
+            return pattern_check(string[1:], pattern[1:])
+        else:
+            return False
+    
+    for index in range(len(string)):
+        print(string[index:], "outside function")
+        
+        if pattern_check(string[index:], pattern) == True:
+            counter += 1
+    return counter
+
+helper_function("jaja", "ja")
+```
+
+```{python}
+# Without using recursion
+
+def naive_search(string, pattern):
+    counter = 0
+    for outer_index in range(len(string)):
+            if string[outer_index]==pattern[0] and len(string[outer_index:]) > len(pattern):
+                for inner_index in range(len(pattern)):
+                    if string[outer_index + inner_index] != pattern[inner_index]:
+                        break
+                    
+                counter +=1
+    return counter
+naive_search("wsdkd", "dk")
+```
